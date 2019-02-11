@@ -33,5 +33,6 @@ $this->params['breadcrumbs'][] = $this->title;
 
     <h3>Автор: <?= Html::a($author, Url::to(['author/view', 'id' => $model->author_id])); ?></h3>
     <p><b>Цена: <?= $model->price; ?> руб.</b></p>
+    <p>Дата публикования: <?= date('d.m.Y', $model->created_at); ?></p>
 
 </div>

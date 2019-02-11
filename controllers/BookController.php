@@ -77,11 +77,14 @@ class BookController extends Controller
     {
         $model = new Book();
 
-        if ($model->load(Yii::$app->request->post()) && $model->save()) {
-            $author = Author::findOne($model->author_id);
-            $author->books_count++;
-            $author->save();
-            return $this->redirect(['view', 'id' => $model->id]);
+        if ($model->load(Yii::$app->request->post())) {
+            $model->created_at = strtotime($model->created_at);
+            if ($model->save()) {
+                $author = Author::findOne($model->author_id);
+                $author->books_count++;
+                $author->save();
+                return $this->redirect(['view', 'id' => $model->id]);
+            }
         }
 
         $authors = Author::find()->all();
@@ -104,8 +107,11 @@ class BookController extends Controller
         $model = $this->findModel($id);
         $authors = Author::find()->all();
 
-        if ($model->load(Yii::$app->request->post()) && $model->save()) {
-            return $this->redirect(['view', 'id' => $model->id]);
+        if ($model->load(Yii::$app->request->post())) {
+            $model->created_at = strtotime($model->created_at);
+            if($model->save()){
+                return $this->redirect(['view', 'id' => $model->id]);
+            }
         }
 
         return $this->render('update', [

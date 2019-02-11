@@ -7,7 +7,10 @@ $config = [
     'id' => 'basic',
     'name' => 'Maxim Somov',
     'basePath' => dirname(__DIR__),
-    'bootstrap' => ['log'],
+    'bootstrap' => [
+        'log',
+        'api'
+    ],
     'aliases' => [
         '@bower' => '@vendor/bower-asset',
         '@npm'   => '@vendor/npm-asset',

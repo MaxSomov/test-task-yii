@@ -11,6 +11,7 @@ use Yii;
  * @property string $title
  * @property double $price
  * @property int $author_id
+ * @property int $created_at
  */
 class Book extends \yii\db\ActiveRecord
 {
@@ -29,7 +30,7 @@ class Book extends \yii\db\ActiveRecord
     {
         return [
             [['title', 'price', 'author_id'], 'required'],
-            [['price'], 'number'],
+            [['price', 'created_at'], 'number'],
             [['author_id'], 'integer'],
             [['title'], 'string', 'max' => 100],
         ];
@@ -45,6 +46,7 @@ class Book extends \yii\db\ActiveRecord
             'title' => 'Название',
             'price' => 'Цена',
             'author_id' => 'Автор',
+            'created_at' => 'Дата создания'
         ];
     }
 }

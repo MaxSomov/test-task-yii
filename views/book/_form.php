@@ -22,6 +22,8 @@ use yii\helpers\ArrayHelper;
 
     <?= $form->field($model, 'author_id')->dropDownList(ArrayHelper::map($authors, 'id', 'name')) ?>
 
+    <input type="date" id="book-created_at" class="form-control" name="Book[created_at]">
+
     <div class="form-group">
         <?= Html::submitButton('Сохранить', ['class' => 'btn btn-success']) ?>
     </div>
