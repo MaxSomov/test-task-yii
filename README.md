@@ -19,7 +19,10 @@
 ## RESTful API
 
 `GET /api/v1/book/list` - получение списка книг
+
 `GET /api/v1/books/find` - получение данных книги по id
+
 `POST /api/v1/books/update` - обновление данных книги
+
 `DELETE /api/v1/books/id` - удаление записи из БД
 
