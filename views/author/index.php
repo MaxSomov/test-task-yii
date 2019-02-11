@@ -4,6 +4,7 @@ use yii\helpers\Html;
 use yii\helpers\Url;
 use yii\widgets\LinkPager;
 
+
 /* @var $this yii\web\View */
 /* @var $authors app\models\Author[] */
 /* @var \yii\data\Pagination $pages */
@@ -49,7 +50,6 @@ $this->params['breadcrubs'][] = $this->title;
             </div>
         <?php endforeach; ?>
     </div>
-
     <?php
     echo LinkPager::widget([
         'pagination' => $pages,

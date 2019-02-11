@@ -1,9 +1,8 @@
 <?php
 
-namespace app\models;
+namespace app\modules\api\modules\v1\models;
 
 use Yii;
-use yii\db\ActiveRecord;
 
 /**
  * This is the model class for table "Authors".
@@ -11,8 +10,10 @@ use yii\db\ActiveRecord;
  * @property int $id
  * @property string $name
  * @property int $books_count
+ *
+ * @property Books[] $books
  */
-class Author extends ActiveRecord
+class Author extends \yii\db\ActiveRecord
 {
     /**
      * {@inheritdoc}
@@ -31,7 +32,6 @@ class Author extends ActiveRecord
             [['name'], 'required'],
             [['name'], 'string'],
             [['books_count'], 'integer'],
-            [['books_count'], 'default', 'value' => 0],
         ];
     }
 
@@ -41,9 +41,17 @@ class Author extends ActiveRecord
     public function attributeLabels()
     {
         return [
-            'id' => '#',
-            'name' => 'ФИО',
-            'books_count' => 'Количество книг',
+            'id' => 'ID',
+            'name' => 'Name',
+            'books_count' => 'Books Count',
         ];
+    }
+
+    /**
+     * @return \yii\db\ActiveQuery
+     */
+    public function getBooks()
+    {
+        return $this->hasMany(Books::className(), ['author_id' => 'id']);
     }
 }
