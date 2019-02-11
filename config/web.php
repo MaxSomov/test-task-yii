@@ -63,9 +63,8 @@ $config = [
                     'class' => 'yii\rest\UrlRule',
                     'controller' => 'api/v1/book',
                     'extraPatterns' => [
-                        'GET books/list' => 'book/list',
-                        'GET books/find' => 'book/find',
-                        'POST books/update/' => 'book/update',
+                        'GET list' => 'list',
+                        'GET find' => 'find',
                     ]
                 ]
             ],
